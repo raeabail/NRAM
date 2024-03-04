@@ -43,7 +43,7 @@ library(gotop)
 
 setwd("//Users//raenahbailey//Desktop//RAM-N")
 
-Nsources <- read_excel("www/data/Sum_of_Nsources1.xlsx")
+Nsources <- read_excel("www/Sum_of_Nsources1.xlsx")
 ##############################################################################################################################
 
 # Define UI
