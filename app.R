@@ -10,7 +10,6 @@ library(leaflet)
 library(shinyjs)
 library(shinyWidgets)
 library(shinythemes)
-library(leaflet)
 library(sp)
 library(tidyverse)
 library(dplyr)
@@ -25,7 +24,6 @@ library(data.table)
 library(DT)
 library(mapdeck)
 library(png)
-library(tidyverse)
 library(magrittr)
 library(highcharter)
 library(tmap)
@@ -43,7 +41,8 @@ library(gotop)
 
 setwd("//Users//raenahbailey//Desktop//RAM-N")
 
-Nsources <- read_excel("www/Sum_of_Nsources1.xlsx")
+Nsources <- read_excel("data/Sum_of_Nsources1.xlsx")
+
 ##############################################################################################################################
 
 # Define UI
