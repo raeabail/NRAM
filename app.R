@@ -1827,7 +1827,7 @@ server <- function(input, output, session) {
     ))
   })
   
-  Sum_of_Nsources <- read_excel("www/Nsources_for_map.xlsx")
+  Sum_of_Nsources <- read_excel("data/Nsources_for_map.xlsx")
   Sum_of_Nsources <- Sum_of_Nsources[-c(225, 226), ]
   Sum_of_Nsources$Longitude <- as.numeric(Sum_of_Nsources$Longitude)
   Sum_of_Nsources$Latitude <- as.numeric(Sum_of_Nsources$Latitude)
@@ -1836,7 +1836,7 @@ server <- function(input, output, session) {
   crs.geol = CRS("+proj=longlat")
   proj4string(Sum_of_Nsources) = crs.geol
   MarionCo1 <- CRS("+proj=longlat +datum=WGS84 +no_defs")
-  MarionCo <- readOGR(dsn = path.expand("www/2020_Census_Tracts/2020_Census_Tracts.shp"))
+  MarionCo <- readOGR(dsn = path.expand("data/2020_Census_Tracts/2020_Census_Tracts.shp"))
   
   N_data <- spTransform(Sum_of_Nsources, CRSobj =  MarionCo1)
   
