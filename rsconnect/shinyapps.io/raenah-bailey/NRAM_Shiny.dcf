@@ -1,0 +1,12 @@
+name: NRAM_Shiny
+title: NRAM_Shiny
+username: raenah-bailey
+account: raenah-bailey
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11391761
+bundleId:
+url: https://raenah-bailey.shinyapps.io/NRAM_Shiny/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
