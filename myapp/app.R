@@ -15,10 +15,8 @@ library(tidyverse)
 library(dplyr)
 library(readxl)
 library(here)
-library(rgdal)
 library(ggpubr)
 library(grid)
-library(rgeos)
 library(sf)
 library(data.table)
 library(DT)
@@ -36,27 +34,32 @@ library(htmltools)
 library(htmlwidgets)
 library(htmltools)
 library(gotop)
+library(webr)
+library(pak)
+library(bslib)
+
 ##############################################################################################################################
 #### open, load, and prep census map data ####
 
 Nsources <- read_excel("data/Sum_of_Nsources1.xlsx")
+Sum_of_Nsources <- read_excel("data/Nsources_for_map.xlsx")
+MarionCo <- st_read(dsn = path.expand("data/2020_Census_Tracts/2020_Census_Tracts.shp"))
 
 ##############################################################################################################################
 
 # Define UI
 ui <- fluidPage(
   tags$head(
-    tags$link(rel = "stylesheet", type = "text/css", href = "css/journal-theme.css"),
-    tags$link(rel = "stylesheet", type = "text/css", href = "css/style.css"),  # Add your custom styles here
-  #tags$script(src = "js/jquery-3.6.0.min.js"),
-   #tags$script(src = "js/bootstrap.bundle.min.js"),
-  ),
+    tags$link(rel = "stylesheet", type = "text/css", href = "www/css/journal-theme.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "www/css/style.css"),
+    tags$link(rel = "stylesheet", type = "text/css", src = "www/css/bootstrap.min.css")),
+    
   
   div(
     class = 'double-border-text<Nitrogen Risk Assessment>',
     h1(style = "text-align: center; float: left; margin-left: 250px; margin-top: 90px", "Nitrogen Risk Assessment Model"),
     h4(style = "text-align: center; float: left; margin-left: 320px; margin-top: 15px", "Case study performed in Marion County, Indiana"),
-    tags$img(id="marion_county", type = "jpg", src = "marion_county.jpg",
+    tags$img(id="marion_county", type = "jpeg", src = "www/marion_county.jpeg",
              style="margin-left: auto; margin-right: 250px; margin-top: -125px; width: 350px; float: right")
   ),
 
@@ -1834,7 +1837,7 @@ server <- function(input, output, session) {
   crs.geol = CRS("+proj=longlat")
   proj4string(Sum_of_Nsources) = crs.geol
   MarionCo1 <- CRS("+proj=longlat +datum=WGS84 +no_defs")
-  MarionCo <- readOGR(dsn = path.expand("data/2020_Census_Tracts/2020_Census_Tracts.shp"))
+  MarionCo <- st_read(dsn = path.expand("data/2020_Census_Tracts/2020_Census_Tracts.shp"))
   
   N_data <- spTransform(Sum_of_Nsources, CRSobj =  MarionCo1)
   
