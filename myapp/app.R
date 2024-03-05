@@ -3,6 +3,7 @@
 ### Raenah Bailey, graduate student, IUPUI
 ### Version 1.5
 
+
 library(shiny)
 library(shinydashboard)
 library(shinyBS)
@@ -41,9 +42,9 @@ library(bslib)
 ##############################################################################################################################
 #### open, load, and prep census map data ####
 
-Nsources <- read_excel("data/Sum_of_Nsources1.xlsx")
-Sum_of_Nsources <- read_excel("data/Nsources_for_map.xlsx")
-MarionCo <- st_read(dsn = path.expand("data/2020_Census_Tracts/2020_Census_Tracts.shp"))
+#Nsources <- read_excel("data/Sum_of_Nsources1.xlsx")
+#Sum_of_Nsources <- read_excel("data/Nsources_for_map.xlsx")
+#MarionCo <- st_read(dsn = path.expand("data/2020_Census_Tracts/2020_Census_Tracts.shp"))
 
 ##############################################################################################################################
 
